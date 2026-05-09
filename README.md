@@ -17,9 +17,9 @@ Example structure:
 ```
 
 2) How the site finds the file
-- The Play button has a `data-src` attribute set to `/audio/enna_sona.mp3`.
+- The Play button has a `data-src` attribute set to `audio/enna_sona.mp3`.
 - The script will read that `data-src`, set it on the `<audio>` element when the user clicks Play, and then attempt to play (this satisfies browser user-gesture autoplay policies).
-- If you prefer to configure in JS, open `script.js` and set the `AUDIO_SRC` constant to the file path (e.g., `/audio/enna_sona.mp3`).
+- If you prefer to configure in JS, open `script.js` and set the `AUDIO_SRC` constant to the file path (e.g., `audio/enna_sona.mp3`).
 
 3) Commit & push to GitHub
 Replace `<your-username>` and `<repo>` with your values.

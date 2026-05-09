@@ -160,7 +160,7 @@
             <p class="text-on-surface-variant text-xs mt-1">from OK Jaanu</p>
         </div>
     </div>
-<button data-src="/audio/enna_sona.mp3" aria-label="Play Enna Sona" class="play-music-btn px-8 py-3 bg-primary-container text-white font-button-text text-button-text uppercase tracking-widest rounded-full hover:scale-105 transition-transform duration-300 flex items-center justify-center gap-3" id="play-music-btn">
+<button data-src="audio/enna_sona.mp3" aria-label="Play Enna Sona" class="play-music-btn px-8 py-3 bg-primary-container text-white font-button-text text-button-text uppercase tracking-widest rounded-full hover:scale-105 transition-transform duration-300 flex items-center justify-center gap-3" id="play-music-btn">
 <span class="material-symbols-outlined">play_arrow</span>
 <span>Play</span>
 </button>
@@ -208,53 +208,5 @@ Your browser does not support the audio element.
 <span class="font-ui-label text-[10px] uppercase tracking-widest mt-1">Always</span>
 </div>
 </footer>
-<script>
-        const noBtn = document.getElementById('no-btn');
-        const finalCard = document.getElementById('final-card');
-        const finalText = document.getElementById('final-text');
-        const rejectionMsg = document.getElementById('rejection-msg');
-        const actionBtns = document.getElementById('action-buttons');
-        const floatingTulips = document.querySelectorAll('.floating-tulip');
-
-        let escapeCount = 0;
-
-        noBtn.addEventListener('mouseover', () => {
-            if (escapeCount < 5) {
-                const x = (Math.random() - 0.5) * 200;
-                const y = (Math.random() - 0.5) * 200;
-                noBtn.style.transform = `translate(${x}px, ${y}px)`;
-                escapeCount++;
-            }
-        });
-
-        noBtn.addEventListener('click', () => {
-            finalText.style.opacity = '0.3';
-            actionBtns.style.display = 'none';
-            rejectionMsg.classList.remove('hidden');
-            rejectionMsg.style.opacity = '1';
-            
-            // Wither effect
-            document.querySelectorAll('img[src*="IMAGE_1"]').forEach(img => {
-                img.style.filter = 'grayscale(100%) brightness(0.7)';
-                img.style.transition = 'filter 2s ease';
-            });
-            
-            finalCard.style.borderColor = '#cbc6b9';
-            finalCard.style.backgroundColor = 'rgba(234, 232, 231, 0.4)';
-        });
-
-        // Intersection Observer for staggered fade
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-up');
-                }
-            });
-        }, { threshold: 0.2 });
-
-        document.querySelectorAll('.glass-card').forEach(card => {
-            observer.observe(card);
-        });
-    </script>
 <script src="script.js"></script>
 </body></html>

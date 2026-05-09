@@ -151,13 +151,13 @@
                 </p>
 <div class="flex flex-col items-center gap-8">
     <div id="music-meta" class="hidden">
-        <div class="w-32 h-32 rounded-lg overflow-hidden bg-surface-container shadow-lg">
-            <img alt="Enna Sona - OK Jaanu" class="w-full h-full object-cover" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Crect fill='%232a2a2a' width='300' height='300'/%3E%3Ccircle cx='150' cy='150' r='50' fill='%23a89a7a'/%3E%3Cpath d='M130 130 L130 170 L170 150 Z' fill='%231a1a1a'/%3E%3C/svg%3E"/>
+        <div class="w-40 h-40 rounded-lg overflow-hidden bg-surface-container shadow-lg border border-white/10">
+            <img id="song-cover" alt="Enna Sona - OK Jaanu" class="w-full h-full object-cover" loading="lazy" src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=600&q=80"/>
         </div>
         <div class="text-center mt-4">
-            <h3 class="story-serif text-headline-md text-primary mb-2">Enna Sona</h3>
-            <p class="text-on-surface-variant text-sm">A.R. Rahman, Arijit Singh</p>
-            <p class="text-on-surface-variant text-xs mt-1">from OK Jaanu</p>
+            <h3 id="song-title" class="story-serif text-headline-md text-primary mb-2">Enna Sona</h3>
+            <p id="song-artist" class="text-on-surface-variant text-sm">A.R. Rahman, Arijit Singh</p>
+            <p id="song-album" class="text-on-surface-variant text-xs mt-1">from OK Jaanu</p>
         </div>
     </div>
 <button data-src="audio/enna_sona.mp3" aria-label="Play Enna Sona" class="play-music-btn px-8 py-3 bg-primary-container text-white font-button-text text-button-text uppercase tracking-widest rounded-full hover:scale-105 transition-transform duration-300 flex items-center justify-center gap-3" id="play-music-btn">

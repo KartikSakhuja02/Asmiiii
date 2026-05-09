@@ -62,6 +62,11 @@ const playMusicBtn = document.getElementById('play-music-btn');
 const musicPlayer = document.getElementById('music-player');
 const audioPlayer = document.getElementById('audio-player');
 const musicMeta = document.getElementById('music-meta');
+const openMessageBtn = document.getElementById('open-message-btn');
+const openMessageBtnMain = document.getElementById('open-message-btn-main');
+const closeMessageBtn = document.getElementById('close-message-btn');
+const messageOverlay = document.getElementById('message-overlay');
+const messageBackdrop = document.getElementById('message-backdrop');
 
 // Configure a source URL here or set a `data-src` attribute on the play button.
 // Example: const AUDIO_SRC = 'https://example.com/audio/enna-song.mp3'
@@ -146,4 +151,32 @@ audioPlayer.addEventListener('play', () => {
 audioPlayer.addEventListener('pause', () => {
     playMusicBtn.innerHTML = '<span class="material-symbols-outlined">play_arrow</span><span>Play</span>';
     playMusicBtn.style.transform = 'scale(1)';
+});
+
+// Slide-in big message card
+function openMessageCard() {
+    if (!messageOverlay) return;
+    messageOverlay.classList.remove('hidden');
+    requestAnimationFrame(() => {
+        messageOverlay.classList.add('is-open');
+    });
+}
+
+function closeMessageCard() {
+    if (!messageOverlay) return;
+    messageOverlay.classList.remove('is-open');
+    setTimeout(() => {
+        messageOverlay.classList.add('hidden');
+    }, 550);
+}
+
+if (openMessageBtn) openMessageBtn.addEventListener('click', openMessageCard);
+if (openMessageBtnMain) openMessageBtnMain.addEventListener('click', openMessageCard);
+if (closeMessageBtn) closeMessageBtn.addEventListener('click', closeMessageCard);
+if (messageBackdrop) messageBackdrop.addEventListener('click', closeMessageCard);
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && messageOverlay && messageOverlay.classList.contains('is-open')) {
+        closeMessageCard();
+    }
 });

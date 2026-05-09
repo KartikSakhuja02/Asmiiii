@@ -100,8 +100,7 @@
 <header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-padding-mobile md:px-container-padding-desktop py-gutter bg-transparent">
 <div class="font-display-lg text-headline-md text-primary tracking-tight">One Last Time</div>
 <nav class="hidden md:flex gap-8">
-<span class="text-on-surface-variant font-ui-label text-ui-label hover:text-primary transition-colors duration-300">Our Story</span>
-<span class="text-on-surface-variant font-ui-label text-ui-label hover:text-primary transition-colors duration-300">Gallery</span>
+<button class="text-on-surface-variant font-ui-label text-ui-label hover:text-primary transition-colors duration-300" id="open-message-btn" type="button">Read Message</button>
 <span class="text-primary font-bold border-b border-primary pb-1 font-ui-label text-ui-label">Response</span>
 </nav>
 <div class="flex items-center gap-4 text-primary">
@@ -142,6 +141,11 @@
 <p class="story-serif text-headline-md text-on-surface text-center">
                     I'm here, trying one last time. I promise it's the last time I'll ask, but I couldn't let go without a final word.
                 </p>
+<div class="mt-10 flex justify-center">
+<button class="px-8 py-3 border border-outline text-on-surface font-button-text text-button-text uppercase tracking-widest rounded-full hover:bg-surface-container transition-all duration-300" id="open-message-btn-main" type="button">
+                        Open My Message
+                    </button>
+</div>
 </div>
 </section>
 <section class="snap-section">
@@ -208,5 +212,22 @@ Your browser does not support the audio element.
 <span class="font-ui-label text-[10px] uppercase tracking-widest mt-1">Always</span>
 </div>
 </footer>
+<div aria-hidden="true" class="message-overlay hidden" id="message-overlay">
+<div class="message-backdrop" id="message-backdrop"></div>
+<aside aria-labelledby="message-title" class="message-drawer" role="dialog">
+<button aria-label="Close message" class="message-close-btn" id="close-message-btn" type="button">
+<span class="material-symbols-outlined">close</span>
+</button>
+<p class="message-label">For You</p>
+<h3 class="story-serif text-headline-md text-primary mb-6" id="message-title">Read this when you're ready</h3>
+<!-- Edit this block with your full message. You can keep line breaks with <br><br>. -->
+<p class="story-serif message-content" id="big-message-content">
+                Dear Asmi,<br><br>
+                This is where your full message goes. Replace this entire paragraph with whatever you want to say, as long as you want.<br><br>
+                You can add memories, apologies, promises, and everything from your heart here.<br><br>
+                Always rooting for us.
+            </p>
+</aside>
+</div>
 <script src="script.js"></script>
 </body></html>

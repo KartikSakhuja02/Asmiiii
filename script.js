@@ -62,36 +62,10 @@ const playMusicBtn = document.getElementById('play-music-btn');
 const musicPlayer = document.getElementById('music-player');
 const audioPlayer = document.getElementById('audio-player');
 const musicMeta = document.getElementById('music-meta');
-const songCover = document.getElementById('song-cover');
-const songTitle = document.getElementById('song-title');
-const songArtist = document.getElementById('song-artist');
-const songAlbum = document.getElementById('song-album');
 
 // Configure a source URL here or set a `data-src` attribute on the play button.
 // Example: const AUDIO_SRC = 'https://example.com/audio/enna-song.mp3'
 const AUDIO_SRC = '';
-
-async function hydrateMusicCard() {
-    try {
-        const endpoint = 'https://itunes.apple.com/search?term=' + encodeURIComponent('Enna Sona Arijit Singh') + '&entity=song&limit=1';
-        const res = await fetch(endpoint);
-        if (!res.ok) return;
-        const data = await res.json();
-        if (!data.results || !data.results.length) return;
-
-        const track = data.results[0];
-        const cover = (track.artworkUrl100 || '').replace('100x100bb', '600x600bb');
-
-        if (songCover && cover) songCover.src = cover;
-        if (songTitle && track.trackName) songTitle.textContent = track.trackName;
-        if (songArtist && track.artistName) songArtist.textContent = track.artistName;
-        if (songAlbum && track.collectionName) songAlbum.textContent = 'from ' + track.collectionName;
-    } catch (e) {
-        // keep fallback metadata/artwork already in HTML
-    }
-}
-
-hydrateMusicCard();
 
 function showMusicMessage(msg) {
     let note = musicPlayer.querySelector('.music-note');

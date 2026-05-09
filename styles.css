@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&display=swap');
+
+:root {
+    --bg-creamy: #1a1a1a;
+    --bg-secondary: #242424;
+    --text-primary: #e8e8e8;
+    --text-secondary: #b0b0b0;
+}
+
+body {
+    background-color: var(--bg-creamy);
+    overflow-x: hidden;
+}
+
+.glass-card {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    background: rgba(36, 36, 36, 0.6);
+}
+
+.snap-container {
+    scroll-snap-type: y mandatory;
+    height: 100vh;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.snap-container::-webkit-scrollbar {
+    display: none;
+}
+
+.snap-section {
+    scroll-snap-align: start;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.floating-tulip {
+    position: absolute;
+    width: 40px;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+    animation: driftUp 15s linear infinite;
+}
+
+@keyframes driftUp {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.1; }
+    90% { opacity: 0.1; }
+    100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+}
+
+.story-serif {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.no-button-escape {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.fade-in-up {
+    animation: fadeInUp 1.2s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.rejection-state {
+    background: rgba(20, 15, 10, 0.95) !important;
+    border-color: rgba(120, 100, 70, 0.6) !important;
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.7), 0 20px 50px rgba(0, 0, 0, 0.8);
+    transition: all 0.8s ease;
+}
+
+#rejection-msg {
+    font-size: 1.8rem;
+    line-height: 2;
+    color: #e8d9c3;
+    letter-spacing: 0.08em;
+    font-weight: 400;
+    text-transform: lowercase;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+
+.play-music-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.play-music-btn:hover {
+    box-shadow: 0 8px 20px rgba(168, 154, 122, 0.3);
+}
+
+.play-music-btn span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#music-player audio {
+    background: rgba(42, 42, 42, 0.5);
+    border-radius: 8px;
+    outline: 1px solid rgba(168, 154, 122, 0.3);
+}
+
+#music-player audio::-webkit-media-controls-panel {
+    background-color: rgba(42, 42, 42, 0.7);
+}
+}

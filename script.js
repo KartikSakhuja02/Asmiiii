@@ -180,3 +180,15 @@ document.addEventListener('keydown', (event) => {
         closeMessageCard();
     }
 });
+
+// Auto-show message card on page load - show popup immediately
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        if (messageOverlay) {
+            messageOverlay.classList.remove('hidden');
+            setTimeout(() => {
+                messageOverlay.classList.add('is-open');
+            }, 50);
+        }
+    }, 600);
+});
